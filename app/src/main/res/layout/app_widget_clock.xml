@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Widget支持的控件-->
+<!--FrameLayout-->
+<!--LinearLayout-->
+<!--RelativeLayout-->
+<!--GridLayout-->
+
+<!--AnalogClock-->
+<!--Button-->
+<!--Chronometer-->
+<!--ImageButton-->
+<!--ImageView-->
+<!--ProgressBar-->
+<!--TextView-->
+<!--ViewFlipper-->
+<!--ListView-->
+<!--GridView-->
+<!--StackView-->
+<!--AdapterViewFlipper-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clock"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+  <ImageView
+      android:id="@+id/background"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:src="@drawable/widget_bg"
+      />
+
+  <ImageView
+      android:id="@+id/time_s"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:src="@drawable/widget_sec_00"
+      />
+  <ImageView
+      android:id="@+id/time_m"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:src="@drawable/widget_min_00"
+      />
+  <ImageView
+      android:id="@+id/time_h"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:src="@drawable/widget_hour_00"
+      />
+
+  <!--<ProgressBar-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="match_parent"-->
+  <!--android:layout_gravity="center"-->
+  <!--style="@style/Shyaringan"-->
+  <!--/>-->
+
+  <!--<TextView-->
+  <!--android:id="@+id/time"-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:layout_gravity="center"-->
+  <!--android:gravity="center"-->
+  <!--/>-->
+</FrameLayout>
