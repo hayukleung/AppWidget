@@ -33,7 +33,7 @@ public class ClockService extends Service {
   private Bitmap mHandM;
   private Bitmap mHandH;
 
-  private SparseIntArray mSecondMap = new SparseIntArray(60);
+  private final SparseIntArray mSecondMap = new SparseIntArray(60);
 
   @Override public void onCreate() {
     super.onCreate();

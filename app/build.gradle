@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 25
-  buildToolsVersion "25.0.2"
+  compileSdkVersion 31
   defaultConfig {
     applicationId "com.hayukleung.appwidget"
     minSdkVersion 14
-    targetSdkVersion 25
+    targetSdkVersion 31
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -28,7 +27,7 @@ android {
           'annotations.pro'
       signingConfig signingConfigs.hayukleung
       ndk {
-        abiFilters "armeabi"
+        abiFilters "arm64-v8a"
       }
     }
     debug {
@@ -37,13 +36,13 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro',
           'annotations.pro'
       ndk {
-        abiFilters "armeabi", "x86"
+        abiFilters "arm64-v8a", "x86_64"
       }
     }
   }
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:appcompat-v7:25.3.0'
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation 'com.android.support:appcompat-v7:25.3.0'
 }
