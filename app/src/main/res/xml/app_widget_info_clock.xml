@@ -5,7 +5,7 @@
     android:minResizeHeight="180dp"
     android:minResizeWidth="180dp"
     android:minWidth="180dp"
-    android:previewImage="@drawable/widget_clock_preview"
+    android:previewImage="@drawable/fish"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="1800000"
     >
