@@ -72,6 +72,7 @@ object Sound {
         CoroutineScope(Dispatchers.IO).launch {
             if (null == mSoundPool) {
                 init(context)
+                delay(400)
             }
             delay(100)
             mSoundPool!!.play(mSoundIdPool[SOUND_YYLX], leftVolume, rightVolume, 0, 0, 1f)
