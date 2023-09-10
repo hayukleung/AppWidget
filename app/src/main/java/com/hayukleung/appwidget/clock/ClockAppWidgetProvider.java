@@ -41,9 +41,9 @@ public class ClockAppWidgetProvider extends AppWidgetProvider {
       RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.app_widget_clock);
 
 
-
       // for oneplus
-      goNFC(context, remoteViews, "com.finshell.wallet", "com.nearme.wallet.nfc.ui.NfcConsumeActivity");
+      // goNFC(context, remoteViews, "com.finshell.wallet", "com.nearme.wallet.nfc.ui.NfcConsumeActivity");
+
 
       // for android
       goClockSetting(context, remoteViews, "com.android.deskclock", "com.android.deskclock.DeskClock");
@@ -57,17 +57,42 @@ public class ClockAppWidgetProvider extends AppWidgetProvider {
       goClockSetting(context, remoteViews, "com.yulong.android.xtime", "yulong.xtime.ui.main.XTimeActivity");
       // TODO for other android phone
 
+
+
+      Intent intent = new Intent(context, ClockAppWidgetProvider.class);
+      intent.setAction("yylx");
+      intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+      PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+      remoteViews.setOnClickPendingIntent(R.id.background, pendingIntent);
+
       // remoteViews.setFloat(R.id.shyaringan, "setRotation", 0);
       appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
     }
 
-    Sound.INSTANCE.playSoundScanFinish(context, new Callback() {
-      @Override
-      public void onPlayFinish() {
 
-      }
-    });
-    context.startService(new Intent(context, ClockService.class));
+    // context.startService(new Intent(context, ClockService.class));
+  }
+
+  @Override
+  public void onReceive(Context context, Intent intent) {
+    super.onReceive(context, intent);
+    if ("yylx".equals(intent.getAction())) {
+      // TODO
+
+
+
+      Sound.INSTANCE.playSoundScanFinish(context, new Callback() {
+        @Override
+        public void onPlayFinish() {
+
+
+          Intent nfcIntent = new Intent().setComponent(new ComponentName("com.finshell.wallet", "com.nearme.wallet.nfc.ui.NfcConsumeActivity"));
+          nfcIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+          PendingIntent intent = PendingIntent.getActivity(context, 2, nfcIntent, PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+          context.startActivity(nfcIntent);
+        }
+      });
+    }
   }
 
   @Override public void onDeleted(Context context, int[] appWidgetIds) {
