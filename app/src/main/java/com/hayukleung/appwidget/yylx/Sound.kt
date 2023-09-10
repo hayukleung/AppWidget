@@ -55,7 +55,7 @@ object Sound {
             SoundPool(5, AudioManager.STREAM_SYSTEM, 5)
         }
         try {
-            mSoundIdPool.put(SOUND_YYLX, mSoundPool!!.load(context.assets.openFd("sound/yylx.mp3"), 1))
+            mSoundIdPool.put(SOUND_YYLX, mSoundPool!!.load(context.assets.openFd("sound/notification_searching_03.wav"), 1))
         } catch (e: IOException) {
             Log.e(TAG, e.message ?: "")
         }
@@ -72,10 +72,10 @@ object Sound {
         CoroutineScope(Dispatchers.IO).launch {
             if (null == mSoundPool) {
                 init(context)
-                delay(400)
             }
+            delay(100)
             mSoundPool!!.play(mSoundIdPool[SOUND_YYLX], leftVolume, rightVolume, 0, 0, 1f)
-            delay(800)
+            delay(200)
             callback.onPlayFinish()
         }
     }
